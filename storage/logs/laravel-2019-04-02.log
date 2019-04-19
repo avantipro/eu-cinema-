@@ -1,0 +1,232 @@
+[2019-04-02 22:35:39] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists (SQL: 
+CREATE VIEW actor AS SELECT people_films_role.id_films AS id,
+GROUP_CONCAT(people.name) AS name, role
+FROM people JOIN people_films_role
+ON people.id=people_films_role.id_people
+WHERE role='Actor'
+GROUP BY people_films_role.id_films
+ORDER BY people_films_role.id_films;
+
+	
+
+	) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists (SQL: 
+CREATE VIEW actor AS SELECT people_films_role.id_films AS id,
+GROUP_CONCAT(people.name) AS name, role
+FROM people JOIN people_films_role
+ON people.id=people_films_role.id_people
+WHERE role='Actor'
+GROUP BY people_films_role.id_films
+ORDER BY people_films_role.id_films;
+
+\t
+
+\t) at /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php:664, Doctrine\\DBAL\\Driver\\PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:119, PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117)
+[stacktrace]
+#0 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('\
+CREATE VIEW ac...', Array, Object(Closure))
+#1 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(459): Illuminate\\Database\\Connection->run('\
+CREATE VIEW ac...', Array, Object(Closure))
+#2 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(347): Illuminate\\Database\\Connection->statement('\
+CREATE VIEW ac...')
+#3 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\\Database\\DatabaseManager->__call('statement', Array)
+#4 /var/www/clients/client5/web25/web/blog/database/migrations/2019_03_25_011911_create_view_actor.php(16): Illuminate\\Support\\Facades\\Facade::__callStatic('statement', Array)
+#5 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(360): CreateViewActor->up()
+#6 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(367): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#7 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateViewActor), 'up')
+#8 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('/var/www/client...', 10, false)
+#9 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#10 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#11 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#12 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#13 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#14 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#15 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#16 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#17 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#18 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#19 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(198): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#20 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/RefreshCommand.php(60): Illuminate\\Console\\Command->call('migrate', Array)
+#21 [internal function]: Illuminate\\Database\\Console\\Migrations\\RefreshCommand->handle()
+#22 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#23 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#24 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#27 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(908): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(269): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\RefreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 /var/www/clients/client5/web25/web/blog/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 {main}
+"} 
+[2019-04-02 22:36:26] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists (SQL: 
+CREATE VIEW actor AS SELECT people_films_role.id_films AS id,
+GROUP_CONCAT(people.name) AS name, role
+FROM people JOIN people_films_role
+ON people.id=people_films_role.id_people
+WHERE role='Actor'
+GROUP BY people_films_role.id_films
+ORDER BY people_films_role.id_films;
+
+	
+
+	) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists (SQL: 
+CREATE VIEW actor AS SELECT people_films_role.id_films AS id,
+GROUP_CONCAT(people.name) AS name, role
+FROM people JOIN people_films_role
+ON people.id=people_films_role.id_people
+WHERE role='Actor'
+GROUP BY people_films_role.id_films
+ORDER BY people_films_role.id_films;
+
+\t
+
+\t) at /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php:664, Doctrine\\DBAL\\Driver\\PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:119, PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117)
+[stacktrace]
+#0 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('\
+CREATE VIEW ac...', Array, Object(Closure))
+#1 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(459): Illuminate\\Database\\Connection->run('\
+CREATE VIEW ac...', Array, Object(Closure))
+#2 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(347): Illuminate\\Database\\Connection->statement('\
+CREATE VIEW ac...')
+#3 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\\Database\\DatabaseManager->__call('statement', Array)
+#4 /var/www/clients/client5/web25/web/blog/database/migrations/2019_03_25_011911_create_view_actor.php(16): Illuminate\\Support\\Facades\\Facade::__callStatic('statement', Array)
+#5 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(360): CreateViewActor->up()
+#6 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(367): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#7 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateViewActor), 'up')
+#8 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('/var/www/client...', 11, false)
+#9 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#10 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#11 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#12 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#13 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#14 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#15 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#16 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#17 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#18 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#19 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(908): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(269): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 /var/www/clients/client5/web25/web/blog/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 {main}
+"} 
+[2019-04-02 22:42:14] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists (SQL: 
+CREATE VIEW actor AS SELECT people_films_role.id_films AS id,
+GROUP_CONCAT(people.name) AS name, role
+FROM people JOIN people_films_role
+ON people.id=people_films_role.id_people
+WHERE role='Actor'
+GROUP BY people_films_role.id_films
+ORDER BY people_films_role.id_films;
+
+	
+
+	) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists (SQL: 
+CREATE VIEW actor AS SELECT people_films_role.id_films AS id,
+GROUP_CONCAT(people.name) AS name, role
+FROM people JOIN people_films_role
+ON people.id=people_films_role.id_people
+WHERE role='Actor'
+GROUP BY people_films_role.id_films
+ORDER BY people_films_role.id_films;
+
+\t
+
+\t) at /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php:664, Doctrine\\DBAL\\Driver\\PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:119, PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'actor' already exists at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117)
+[stacktrace]
+#0 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('\
+CREATE VIEW ac...', Array, Object(Closure))
+#1 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(459): Illuminate\\Database\\Connection->run('\
+CREATE VIEW ac...', Array, Object(Closure))
+#2 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(347): Illuminate\\Database\\Connection->statement('\
+CREATE VIEW ac...')
+#3 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\\Database\\DatabaseManager->__call('statement', Array)
+#4 /var/www/clients/client5/web25/web/blog/database/migrations/2019_03_25_011911_create_view_actor.php(16): Illuminate\\Support\\Facades\\Facade::__callStatic('statement', Array)
+#5 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(360): CreateViewActor->up()
+#6 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(367): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#7 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateViewActor), 'up')
+#8 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('/var/www/client...', 11, false)
+#9 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#10 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#11 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#12 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#13 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#14 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#15 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#16 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#17 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#18 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#19 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(908): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(269): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 /var/www/clients/client5/web25/web/blog/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 {main}
+"} 
+[2019-04-02 23:43:28] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP_CONCAT(country.name) AS country, films.name
+FROM `country` JOIN `countries' at line 3 (SQL: 
+CREATE VIEW film AS
+SELECT countries_films.id_films AS id, films.year AS year, films.descript AS description
+GROUP_CONCAT(country.name) AS country, films.name
+FROM `country` JOIN `countries_films` JOIN `films`
+ON country.id=countries_films.id_country
+WHERE countries_films.id_films=films.id
+GROUP BY countries_films.id_films
+ORDER BY countries_films.id_films;
+
+
+
+	) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP_CONCAT(country.name) AS country, films.name
+FROM `country` JOIN `countries' at line 3 (SQL: 
+CREATE VIEW film AS
+SELECT countries_films.id_films AS id, films.year AS year, films.descript AS description
+GROUP_CONCAT(country.name) AS country, films.name
+FROM `country` JOIN `countries_films` JOIN `films`
+ON country.id=countries_films.id_country
+WHERE countries_films.id_films=films.id
+GROUP BY countries_films.id_films
+ORDER BY countries_films.id_films;
+
+
+
+\t) at /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php:664, Doctrine\\DBAL\\Driver\\PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP_CONCAT(country.name) AS country, films.name
+FROM `country` JOIN `countries' at line 3 at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:63, PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP_CONCAT(country.name) AS country, films.name
+FROM `country` JOIN `countries' at line 3 at /var/www/clients/client5/web25/web/blog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:61)
+[stacktrace]
+#0 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('\
+CREATE VIEW fi...', Array, Object(Closure))
+#1 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Connection.php(459): Illuminate\\Database\\Connection->run('\
+CREATE VIEW fi...', Array, Object(Closure))
+#2 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(347): Illuminate\\Database\\Connection->statement('\
+CREATE VIEW fi...')
+#3 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\\Database\\DatabaseManager->__call('statement', Array)
+#4 /var/www/clients/client5/web25/web/blog/database/migrations/2019_04_02_234216_create_view_film.php(16): Illuminate\\Support\\Facades\\Facade::__callStatic('statement', Array)
+#5 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(360): CreateViewFilm->up()
+#6 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(367): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#7 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateViewFilm), 'up')
+#8 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('/var/www/client...', 13, false)
+#9 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#10 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#11 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#12 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#13 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#14 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#15 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Container/Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#16 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#17 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#18 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#19 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(908): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(269): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 /var/www/clients/client5/web25/web/blog/vendor/symfony/console/Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 /var/www/clients/client5/web25/web/blog/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 /var/www/clients/client5/web25/web/blog/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 {main}
+"} 
